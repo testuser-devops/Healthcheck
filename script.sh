@@ -1,2 +1,2 @@
 ls
-systemctl --type=service
+systemctl --type=service >>usagereport
