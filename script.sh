@@ -7,5 +7,5 @@ git config --global user.name "testuser-devops"
 git add .
 git commit -m "new commit by jenkins"
 git push -u origin main
-testuser-devops
+
 
