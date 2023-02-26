@@ -7,12 +7,12 @@ pipeline{
             }
             
         }
-    }
-    stage("server status"){
+        stage("server status"){
         steps{
             sh '''
                 .script.sh
             '''
         }
-    }
+        }
+    }    
 }
