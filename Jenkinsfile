@@ -10,8 +10,8 @@ pipeline{
         stage(" checking server status"){
         steps{
             sh '''
-              chmod +x serverhealth.ps1
-              ./serverhealth.ps1
+              chmod +x script.sh
+              ./script.sh
             '''
         }
         }
