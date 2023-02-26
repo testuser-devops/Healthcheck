@@ -1,34 +1,18 @@
 pipeline{
-    agent{
-        label "node"
-    }
+    agent any
     stages{
-        stage("A"){
+        stage("clone git repo"){
             steps{
-                echo "========executing A========"
+                git branch: 'main', credentialsId: 'gmail', url: 'https://github.com/testuser-devops/Healthcheck.git'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
+            
         }
     }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
+    stage("server status"){
+        steps{
+            sh '''
+                ls
+            '''
         }
     }
 }
