@@ -1,17 +1,17 @@
 pipeline{
     agent any
     stages{
-        stage("clone git repo"){
+        stage("cloning git repository"){
             steps{
                 git branch: 'main', credentialsId: 'gmail', url: 'https://github.com/testuser-devops/Healthcheck.git'
             }
             
         }
-        stage("server status"){
+        stage(" checking server status"){
         steps{
             sh '''
-              chmod +x script.sh
-                ./script.sh
+              chmod +x serverhealth.ps1
+              ./serverhealth.ps1
             '''
         }
         }
