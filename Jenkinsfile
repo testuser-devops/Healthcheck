@@ -11,7 +11,7 @@ pipeline{
     stage("server status"){
         steps{
             sh '''
-                ls
+                .script.sh
             '''
         }
     }

@@ -1,1 +1,2 @@
 ls
+systemctl --type=service
