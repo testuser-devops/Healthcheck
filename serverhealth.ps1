@@ -1,7 +1,7 @@
 
 for i in hostlist;
 do
-  Get-ServerHealth -Identity $i
+  Get-ServerHealth -Identity $i >>serverhealth
   HOSTNAME=$( ssh $i hostname)
   DATE=$( ssh $i date "+%Y-%m-%d %H:%M:%S")
   CPUSAGE=$(ssh $i top -b -n 1 -d1 | grep "Cpu" | awl '{print $2}' | awk -F. '{print $1}')
