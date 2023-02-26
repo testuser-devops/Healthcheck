@@ -10,6 +10,8 @@ pipeline{
         stage("server status"){
         steps{
             sh '''
+                ls
+                cd Healthcheck
                 .script.sh
             '''
         }
