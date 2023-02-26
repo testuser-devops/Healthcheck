@@ -6,6 +6,7 @@ pipeline{
                 sh '''
                     cd
                     ls
+                    git clone https://github.com/testuser-devops/Healthcheck.git
                    '''
             }
         }
