@@ -1,5 +1,5 @@
 ls
-systemctl --type=service >>usagereport
+systemctl list-10 --type=service --state=active >>usagereport
 cat usagereport
 git config --global --add safe.directory '*'
 git config --global user.email "test.tester9676@gmail.com"
