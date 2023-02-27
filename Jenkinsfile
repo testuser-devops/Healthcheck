@@ -13,6 +13,7 @@ pipeline{
               chmod +x serverhealth.ps1
               ./serverhealth.ps1
               cat usagereport
+              cat processlist
             '''
             }
         }
