@@ -8,13 +8,13 @@ pipeline{
             
         }
         stage("servers health check"){
-        steps{
-            sh '''
-              chmod +x serverhealth.ps1
-              ./serverhealth.ps1
-              cat usagereport
-              cat processlist
-            '''
+            steps{
+                sh '''
+                    chmod +x serverhealth.ps1
+                    ./serverhealth.ps1
+                    cat usagereport
+                    cat processlist
+                '''
             }
         }
     }    
