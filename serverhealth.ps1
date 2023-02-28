@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -r report
 echo "server status"
 for i in hostlist;
 do
@@ -11,18 +12,22 @@ do
   PROCLIST=$(ssh $i Get-Process | Where-Object {$_.CPU -gt 1}) 
   APPSTATUS=$(ssh $i Get-Service |
   Where-Object {
-    ($_.DisplayName -EQ "java") -or ($_.DisplayName -EQ "docker")
+    (($_.DisplayName -EQ "java") -or ($_.DisplayName -EQ "docker"))
   })
   IISSITEST=$(ssh $i Get-IISSite)
-  echo 'server health'>>usagereport
-  echo "$SERHEALTH">>usagereport
-  echo 'HOSTNAME, DATE&TIME, CPUI(%), MEM(%), DISK(%)' >>usagereport
-  echo "$HOSTNAME, $DATE, $CPUSAGE, $MEMUSAGE, $DISKUSAGE" >>usagereport
-  echo 'PROCLIST'>>processlist
-  echo "$PROCLIST">>processlist
-  echo 'APPSTATUS'>>usagereport
-  echo "$APPSTATUS">>usagereport
-  echo 'IISSITEST'>>usagereport
-  echo "$IISSITEST">>usagereport
+  echo 'HOSTNAME'>>report
+  echo "<-------$HOSTNAME------->">>report
+  echo '<----------server health-------------->'>>report
+  echo "$SERHEALTH">>report
+  echo '<--------------Usage----------------->'>>report
+  echo 'DATE&TIME, CPUI(%), MEM(%), DISK(%)' >>report
+  echo "$HOSTNAME, $DATE, $CPUSAGE, $MEMUSAGE, $DISKUSAGE" >>report
+  echo '<----------PROCLIST------------>'>>report
+  echo "$PROCLIST">>report
+  echo '<----APPSTATUS-------->'>>report
+  echo "$APPSTATUS">>report
+  echo '<-------------IISSITEST----------->'>>report
+  echo "$IISSITEST">>report
+  echo '<------------------------------------------------------------------------------------->'
 
-  done
+done
