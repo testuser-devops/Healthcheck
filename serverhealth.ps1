@@ -3,7 +3,6 @@ rm -r report
 echo "server status"
 for i in hostlist;
 do
-  SERHEALTH=$(Get-ServerHealth -Identity $i) 
   HOSTNAME=$( ssh $i hostname)
   DATE=$( ssh $i date "+%Y-%m-%d %H:%M:%S")
   CPUSAGE=$(ssh $i top -b -n 1 -d1 | grep "Cpu" | awl '{print $2}' | awk -F. '{print $1}')
@@ -17,8 +16,6 @@ do
   IISSITEST=$(ssh $i Get-IISSite)
   echo 'HOSTNAME'>>report
   echo "<-------$HOSTNAME------->">>report
-  echo '<----------server health-------------->'>>report
-  echo "$SERHEALTH">>report
   echo '<--------------Usage----------------->'>>report
   echo 'DATE&TIME, CPUI(%), MEM(%), DISK(%)' >>report
   echo "$HOSTNAME, $DATE, $CPUSAGE, $MEMUSAGE, $DISKUSAGE" >>report
@@ -28,6 +25,6 @@ do
   echo "$APPSTATUS">>report
   echo '<-------------IISSITEST----------->'>>report
   echo "$IISSITEST">>report
-  echo '<------------------------------------------------------------------------------------->'
+  echo '<------------------------------------------------------------------------------------->'>>report
 
 done
