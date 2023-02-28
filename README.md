@@ -5,5 +5,4 @@ Files in this repository are used to do health check for servers by running jenk
 Description of each file
 Jenkinsfile ----------> Jenkins pipeline file
 serverhealth.ps1------> Powershell script
-usagereport-----------> health check report
 hostlist--------------> contains list of host names or IP address
