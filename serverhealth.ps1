@@ -18,7 +18,7 @@ do
   echo "<-------$HOSTNAME------->">>report
   echo '<--------------Usage----------------->'>>report
   echo 'DATE&TIME, CPUI(%), MEM(%), DISK(%)' >>report
-  echo "$HOSTNAME, $DATE, $CPUSAGE, $MEMUSAGE, $DISKUSAGE" >>report
+  echo "$DATE, $CPUSAGE, $MEMUSAGE, $DISKUSAGE" >>report
   echo '<----------PROCLIST------------>'>>report
   echo "$PROCLIST">>report
   echo '<----APPSTATUS-------->'>>report
